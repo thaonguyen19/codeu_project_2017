@@ -305,7 +305,8 @@ public final class View implements BasicView, LogicalView{
 	  System.out.println("ERROR: Exception during call on server. Check log for details.");
 	  LOG.error(ex, "Exception during call on server.");
       }
-
+      if (user == null)
+        LOG.error("Incorrect password");
       return user;
       
   }

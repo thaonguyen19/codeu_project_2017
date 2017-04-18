@@ -91,7 +91,8 @@ public final class View implements BasicView, LogicalView, SinglesView {
 
     for (final User user : model.userById().all()) {
       if (!blacklist.contains(user)) {
-        users.add(user);
+        User tempUser = new User(user.id, user.name, "", user.creation);
+        users.add(tempUser);
       }
     }
     for (final User temp : users){
@@ -194,9 +195,9 @@ public final class View implements BasicView, LogicalView, SinglesView {
 	  }
       }//*/
 
-      for (final User user :  model.userByPassword().at(password)){
-	  if(name.equals(user.name))
-	      return user;
+      for (final User user : model.userByText().at(name)){
+        if(password.equals(user.password))
+	        return user;
       }
       return null;
       

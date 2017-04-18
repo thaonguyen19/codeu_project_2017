@@ -73,22 +73,21 @@ public final class Model {
   public void add(User user) {
     currentUserGeneration = userGenerations.make();
 
-    //userByPassword.insert(user.password,user);
-    
+    userByPassword.insert(user.password,user);
     userById.insert(user.id, user);
     userByTime.insert(user.creation, user);
     userByText.insert(user.name, user);
   }
     
-    public void add(User user, String password) {
-    currentUserGeneration = userGenerations.make();
+  //   public void add(User user, String password) {
+  //   currentUserGeneration = userGenerations.make();
 
-    userByPassword.insert(password,user);
-    userById.insert(user.id, user);
-    userByTime.insert(user.creation, user);
-    userByText.insert(user.name, user);
+  //   userByPassword.insert(password,user);
+  //   userById.insert(user.id, user);
+  //   userByTime.insert(user.creation, user);
+  //   userByText.insert(user.name, user);
     
-  }
+  // }
   
 
   public StoreAccessor<Uuid, User> userById() {

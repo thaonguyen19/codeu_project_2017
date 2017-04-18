@@ -110,8 +110,9 @@ public final class Controller implements RawController, BasicController {
 
     if (isIdFree(id)) {
 
-      user = new User(id, name, creationTime);
-      model.add(user, password);
+      user = new User(id, name, password, creationTime);
+      //model.add(user, password);
+      model.add(user);
      
       LOG.info(
           "newUser success (user.id=%s user.name=%s user.password=%s user.time=%s)",
