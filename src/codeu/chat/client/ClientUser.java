@@ -101,10 +101,10 @@ public final class ClientUser {
     printUser(current);
   }
 
-  public void addUser(String name, String password) {
+  public void addUser(String name, String password, String status) {
     final boolean validName = isValidName(name);
     final boolean validPassword = isValidPassword(password);
-    final User user = (validName && validPassword) ? controller.newUser(name, password) : null;
+    final User user = (validName && validPassword) ? controller.newUser(name, password, status) : null;
 
     if (user == null) {
       System.out.format("Error: user not created - %s.\n",
@@ -152,7 +152,7 @@ public final class ClientUser {
 
   public static String getUserInfoString(User user) {
     return (user == null) ? "Null user" :
-        String.format(" User: %s\n   Id: %s\n   created: %s\n", user.name, user.id, user.creation);
+        String.format(" User: %s\n   Id: %s\n   Status: %s\n    created: %s\n", user.name, user.id, user.status, user.creation);
   }
 
   public String showUserInfo(String uname) {

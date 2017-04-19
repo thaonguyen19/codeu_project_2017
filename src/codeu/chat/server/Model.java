@@ -54,6 +54,8 @@ public final class Model {
   private static final Comparator<String> STRING_COMPARE = String.CASE_INSENSITIVE_ORDER;
 
   private final Store<String, User> userByPassword = new Store<>(STRING_COMPARE); 
+  private final Store<String, User> userByStatus = new Store<>(STRING_COMPARE); 
+
     
   private final Store<Uuid, User> userById = new Store<>(UUID_COMPARE);
   private final Store<Time, User> userByTime = new Store<>(TIME_COMPARE);
@@ -74,6 +76,7 @@ public final class Model {
     currentUserGeneration = userGenerations.make();
 
     userByPassword.insert(user.password,user);
+    userByStatus.insert(user.status, user); //added
     userById.insert(user.id, user);
     userByTime.insert(user.creation, user);
     userByText.insert(user.name, user);
@@ -104,6 +107,10 @@ public final class Model {
 
   public StoreAccessor<String, User> userByPassword() {
     return userByPassword;
+  }
+
+  public StoreAccessor<String, User> userByStatus() {
+    return userByStatus;
   }
     
   public Uuid userGeneration() {

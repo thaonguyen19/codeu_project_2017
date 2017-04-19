@@ -91,7 +91,7 @@ public final class View implements BasicView, LogicalView, SinglesView {
 
     for (final User user : model.userById().all()) {
       if (!blacklist.contains(user)) {
-        User tempUser = new User(user.id, user.name, "", user.creation);
+        User tempUser = new User(user.id, user.name, "", user.status, user.creation);
         users.add(tempUser);
       }
     }

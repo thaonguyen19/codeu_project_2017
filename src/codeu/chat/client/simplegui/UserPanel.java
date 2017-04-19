@@ -88,6 +88,11 @@ public final class UserPanel extends JPanel {
     listShowPanel.add(passwordField);
     passwordField.setPreferredSize(new Dimension(100, 20));
 
+    //STATUS FIELD to be implemented shortly
+    //final JTextField statusField = new JTextField();
+    //listShowPanel.add(statusField);
+    //statusField.setPreferredSize(new Dimension(100, 20));
+
     // Current User panel
     final JPanel currentPanel = new JPanel();
     final GridBagConstraints currentPanelC = new GridBagConstraints();
@@ -177,9 +182,12 @@ public final class UserPanel extends JPanel {
         final String password = (String) JOptionPane.showInputDialog(
             UserPanel.this, "Set password:", "Add password", JOptionPane.PLAIN_MESSAGE,
             null, null, "");
+        final String status = (String) JOptionPane.showInputDialog(
+            UserPanel.this, "Set status:", "Post!", JOptionPane.PLAIN_MESSAGE,
+            null, null, "");
           
         if (s != null && s.length() > 0) {
-          clientContext.user.addUser(s, password);
+          clientContext.user.addUser(s, password, status);
           UserPanel.this.getAllUsers(listModel);
         }
       }
