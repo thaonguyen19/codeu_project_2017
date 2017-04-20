@@ -23,6 +23,7 @@ import codeu.chat.common.Uuids;
 import codeu.chat.util.Serializer;
 import codeu.chat.util.Serializers;
 
+
 public final class ConversationSummary implements ListViewable {
 
   public static final Serializer<ConversationSummary> SERIALIZER = new Serializer<ConversationSummary>() {
@@ -54,6 +55,7 @@ public final class ConversationSummary implements ListViewable {
   public final Uuid owner;
   public final Time creation;
   public final String title;
+  //public ArrayList<String> participants;
 
   public ConversationSummary(Uuid id, Uuid owner, Time creation, String title) {
 
@@ -61,7 +63,6 @@ public final class ConversationSummary implements ListViewable {
     this.owner = owner;
     this.creation = creation;
     this.title = title;
-
   }
 
   // How this object should appear in a user-viewable list

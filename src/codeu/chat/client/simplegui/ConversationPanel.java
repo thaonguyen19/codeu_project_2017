@@ -23,6 +23,9 @@ import javax.swing.event.ListSelectionListener;
 
 import codeu.chat.client.ClientContext;
 import codeu.chat.common.ConversationSummary;
+import java.util.ArrayList;
+
+import codeu.chat.client.simplegui.UserPanel;
 
 // NOTE: JPanel is serializable, but there is no need to serialize ConversationPanel
 // without the @SuppressWarnings, the compiler will complain of no override for serialVersionUID
@@ -133,6 +136,20 @@ public final class ConversationPanel extends JPanel {
         }
       }
     });
+      
+//    addUsersButton.addActionListener(new ActionListener() {
+//       @Override
+//       public void actionPerformed(ActionEvent e){
+//          if (userList.getSelectedIndex() != -1) {
+//             final String userToAdd = userList.getSelectedValue();
+//             if (!(clientContext.user.getCurrent().name.equals(userToAdd))){ //check that the 2 users are distinct
+//                if (clientContext.conversation != null){
+//                    clientContext.participants.add(userToAdd);
+//                }
+//             }
+//          }
+//       }
+//    });
 
     // User clicks on Conversation - Set Conversation to current and fill in Messages panel.
     objectList.addListSelectionListener(new ListSelectionListener() {
