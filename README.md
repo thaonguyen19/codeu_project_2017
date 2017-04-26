@@ -1,6 +1,13 @@
 
 # CODEU CHAT SERVER | README
 
+Features added 20/4/17 --
+
+Users can now set their status when they log in. Currently, it functions as an
+unchangeable bio, but with an update that will be coming shortly, users will
+be able to update their statuses if they are logged in. Statuses are displayed
+in the user info section if the user is clicked.
+
 Features added 4/4/17 --
 
 User login information is now password protected. Adding a new user prompts
