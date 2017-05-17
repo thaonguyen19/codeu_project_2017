@@ -6,7 +6,8 @@ More intuitive GUI display, including a "Sign Out" button, cleaner Password inpu
 easier input for messages between users (a textfield rather than pop up boxes). To make
 moves towards the final extension of integrating color-changing displays, the conversation
 panel colors can be changed by clicking the "Feeling Calm" or "Feeling Angry" buttons (methods
-written for buttons now, to be later called with our smart mood detection algorithm).
+written for buttons now, to be later called with our smart mood detection algorithm). Password
+field allows for safe password typing (using • instead of actual letters). 
 
 Features added 20/4/17 --
 
