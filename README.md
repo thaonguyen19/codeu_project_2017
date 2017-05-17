@@ -1,12 +1,17 @@
 
 # CODEU CHAT SERVER | README
 
+Features added 16/05/17
+More intuitive GUI display, including a "Sign Out" button, cleaner Password input, 
+easier input for messages between users (a textfield rather than pop up boxes). To make
+moves towards the final extension of integrating color-changing displays, the conversation
+panel colors can be changed by clicking the "Feeling Calm" or "Feeling Angry" buttons (methods
+written for buttons now, to be later called with our smart mood detection algorithm).
+
 Features added 20/4/17 --
 
 Users can now set their status when they log in. Currently, it functions as an
-unchangeable bio, but with an update that will be coming shortly, users will
-be able to update their statuses if they are logged in. Statuses are displayed
-in the user info section if the user is clicked.
+unchangeable bio. Statuses are displayed in the user info section if the user is clicked.
 
 Features added 4/4/17 --
 
