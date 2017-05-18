@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+import codeu.chat.client.TwitterBot;
 import codeu.chat.client.ClientContext;
 import codeu.chat.common.ConversationSummary;
 import codeu.chat.common.Message;
@@ -116,8 +117,10 @@ public final class MessagePanel extends JPanel {
     final GridBagConstraints buttonPanelC = new GridBagConstraints();
 
     final JButton addButton = new JButton("Add");
+    final JButton botButton = new JButton("Use TwitterBot");
     buttonPanel.add(addButton);
-
+    buttonPanel.add(botButton);
+      
     // Placement of title, list panel, buttons, and current user panel.
     titlePanelC.gridx = 0;
     titlePanelC.gridy = 0;
@@ -167,7 +170,24 @@ public final class MessagePanel extends JPanel {
         }
       }
     });
-
+      
+    botButton.addActionListener(new ActionListener(){
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        if (!clientContext.user.hasCurrent()) {
+          JOptionPane.showMessageDialog(MessagePanel.this, "You are not signed in.");
+        } else if (!clientContext.conversation.hasCurrent()) {
+          JOptionPane.showMessageDialog(MessagePanel.this, "You must select a conversation.");
+        } else {
+          TwitterBot bot = new TwitterBot();
+          clientContext.message.addMessage(
+                clientContext.user.getCurrent().id,
+                clientContext.conversation.getCurrentId(),
+                bot.generateTweet());
+          MessagePanel.this.getAllMessages(clientContext.conversation.getCurrent());
+        }
+      }
+    });
     // Panel is set up. If there is a current conversation, Populate the conversation list.
     getAllMessages(clientContext.conversation.getCurrent());
   }
