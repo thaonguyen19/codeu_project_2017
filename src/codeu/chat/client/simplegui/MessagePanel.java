@@ -25,6 +25,12 @@ import codeu.chat.common.ConversationSummary;
 import codeu.chat.common.Message;
 import codeu.chat.common.User;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.text.ParseException;
+
 // NOTE: JPanel is serializable, but there is no need to serialize MessagePanel
 // without the @SuppressWarnings, the compiler will complain of no override for serialVersionUID
 @SuppressWarnings("serial")
@@ -179,15 +185,40 @@ public final class MessagePanel extends JPanel {
         } else if (!clientContext.conversation.hasCurrent()) {
           JOptionPane.showMessageDialog(MessagePanel.this, "You must select a conversation.");
         } else {
+          String s = (String) JOptionPane.showInputDialog(
+              MessagePanel.this, "Input a time (yyyy-MM-dd HH:mm:ss) when the bot will send message, leave blank to send now",
+              "Set Timer (Optional)", JOptionPane.PLAIN_MESSAGE, null, null, "");
           TwitterBot bot = new TwitterBot();
-          clientContext.message.addMessage(
-                clientContext.user.getCurrent().id,
+          String messageText = "";
+          s = s.trim();
+          if (s.isEmpty()){
+            clientContext.message.addMessage(clientContext.user.getCurrent().id,
                 clientContext.conversation.getCurrentId(),
                 bot.generateTweet());
+          } else{
+            String pattern = "yyyy-MM-dd HH:mm:ss";
+            SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+            Date timeToSend = new Date();
+            try {
+              timeToSend = formatter.parse(s);
+            } catch (ParseException pe){
+              pe.printStackTrace();
+            }
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask(){
+              public void run(){
+                clientContext.message.addMessage(clientContext.user.getCurrent().id,
+                    clientContext.conversation.getCurrentId(),
+                    bot.generateTweet());
+              }
+            }, timeToSend);
+          }
+          
           MessagePanel.this.getAllMessages(clientContext.conversation.getCurrent());
         }
       }
     });
+      
     // Panel is set up. If there is a current conversation, Populate the conversation list.
     getAllMessages(clientContext.conversation.getCurrent());
   }

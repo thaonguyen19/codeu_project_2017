@@ -23,6 +23,12 @@ import codeu.chat.common.ConversationSummary;
 import codeu.chat.util.Logger;
 import codeu.chat.client.TwitterBot;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.text.ParseException;
+
 // Chat - top-level client application.
 public final class Chat {
 
@@ -58,7 +64,7 @@ public final class Chat {
     System.out.println("   c-select <index> - select conversation from list.");
     System.out.println("Message commands:");
     System.out.println("   m-add <body>     - add a new message to the current conversation.");
-    System.out.println("   m-add-with-bot   - add a new message to the current conversation using Twitter Bot.");
+    System.out.println("   m-add-with-bot <time>   - add a new message to the current conversation using Twitter Bot, choose to send later at <time>");
     System.out.println("   m-list-all       - list all messages in the current conversation.");
     System.out.println("   m-next <index>   - index of next message to view.");
     System.out.println("   m-show <count>   - show next <count> messages.");
@@ -162,9 +168,28 @@ public final class Chat {
         System.out.println("ERROR: No conversation selected.");
       } else {
         TwitterBot bot = new TwitterBot();
-        clientContext.message.addMessage(clientContext.user.getCurrent().id,
+        if (!tokenScanner.hasNext()) {
+          clientContext.message.addMessage(clientContext.user.getCurrent().id,
               clientContext.conversation.getCurrentId(),
               bot.generateTweet());
+        } else {
+          String pattern = "yyyy-MM-dd HH:mm:ss";
+          SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+          Date timeToSend = new Date();
+          try {
+            timeToSend = formatter.parse(tokenScanner.nextLine().trim());
+          } catch (ParseException pe){
+            pe.printStackTrace();
+          }
+          Timer timer = new Timer();
+          timer.schedule(new TimerTask(){
+            public void run(){
+              clientContext.message.addMessage(clientContext.user.getCurrent().id,
+                  clientContext.conversation.getCurrentId(),
+                  bot.generateTweet());
+            }
+          }, timeToSend);
+        }  
       }
 
     } else if (token.equals("m-list-all")) {

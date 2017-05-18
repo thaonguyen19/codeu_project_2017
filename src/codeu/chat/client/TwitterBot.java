@@ -8,8 +8,7 @@ import twitter4j.ResponseList;
 import twitter4j.Paging;
 import twitter4j.TwitterException;
 
-import java.util.*;
-
+import java.util.Random;
 
 public class TwitterBot{
     private static final String API_KEY = "";
@@ -18,8 +17,8 @@ public class TwitterBot{
     private static final String ACCESS_TOKEN_SECRET = "";
 	private static final String SOURCE = "ShakespeareSong";
 	private static final int NUMBER_TWEETS = 20;
-
-    public String generateTweet(){ 
+    
+    public String generateTweet(){
 		String tweet = "";
 
 		try{
@@ -45,5 +44,4 @@ public class TwitterBot{
 
 
 
-         
         

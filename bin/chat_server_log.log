@@ -1,0 +1,242 @@
+May 18, 2017 3:49:57 AM codeu.chat.ServerMain main
+INFO: ============================= START OF LOG =============================
+May 18, 2017 3:49:57 AM codeu.chat.ServerMain main
+INFO: Starting server...
+May 18, 2017 3:49:57 AM codeu.chat.ServerMain runServer
+INFO: Created server.
+May 18, 2017 3:49:57 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:49:57 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:02 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:04 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:04 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:04 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:04 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:04 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:04 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:04 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:04 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:07 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:11 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:11 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:11 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:11 AM codeu.chat.server.Controller newUser
+INFO: Server making new user thao with password 1
+May 18, 2017 3:50:11 AM codeu.chat.server.Controller newUser
+INFO: newUser success (user.id=[UUID:10.2648128732] user.name=thao user.password=1 user.time=18-May-2017 03:50:11.514)
+May 18, 2017 3:50:11 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:11 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:11 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:11 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:11 AM codeu.chat.server.View getUsersExcluding
+INFO: thao
+May 18, 2017 3:50:11 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:11 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:11 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:11 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:11 AM codeu.chat.server.View getUsersExcluding
+INFO: thao
+May 18, 2017 3:50:11 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:12 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:16 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:16 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:16 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:16 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:17 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:22 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:24 AM codeu.chat.server.Controller newConversation
+INFO: Conversation added: [UUID:10.2447173729]
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:24 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:24 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:27 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:29 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:29 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:29 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:29 AM codeu.chat.server.Controller newMessage
+INFO: Message added: [UUID:10.789296905]
+May 18, 2017 3:50:29 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:29 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:29 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:29 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:29 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:29 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:50:29 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:50:29 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:50:29 AM codeu.chat.server.View getMessages
+INFO: in getMessage: UUID=[UUID:10.789296905] range=5
+May 18, 2017 3:50:29 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:50:32 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:37 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:42 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:47 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:52 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:50:57 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:51:00 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:51:00 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:51:00 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:51:00 AM codeu.chat.server.Controller newMessage
+INFO: Message added: [UUID:10.556081850]
+May 18, 2017 3:51:00 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:51:00 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:51:00 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:51:00 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:51:00 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:51:00 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:51:00 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:51:00 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:51:00 AM codeu.chat.server.View getMessages
+INFO: in getMessage: UUID=[UUID:10.789296905] range=1
+May 18, 2017 3:51:00 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:51:00 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:51:00 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:51:00 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:51:00 AM codeu.chat.server.View getMessages
+INFO: in getMessage: UUID=[UUID:10.556081850] range=5
+May 18, 2017 3:51:00 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:51:02 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:51:06 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:51:06 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:51:06 AM codeu.chat.server.Controller newMessage
+INFO: Message added: [UUID:10.2460632665]
+May 18, 2017 3:51:06 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:51:06 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:51:06 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:51:06 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:51:06 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:51:06 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:51:06 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:51:06 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:51:06 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:51:06 AM codeu.chat.server.View getMessages
+INFO: in getMessage: UUID=[UUID:10.556081850] range=1
+May 18, 2017 3:51:06 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:51:06 AM codeu.chat.ServerMain runServer
+INFO: Connection established.
+May 18, 2017 3:51:06 AM codeu.chat.ServerMain runServer
+INFO: Established connection...
+May 18, 2017 3:51:06 AM codeu.chat.server.Server$2 run
+INFO: Handling connection...
+May 18, 2017 3:51:06 AM codeu.chat.server.View getMessages
+INFO: in getMessage: UUID=[UUID:10.2460632665] range=5
+May 18, 2017 3:51:06 AM codeu.chat.server.Server$2 run
+INFO: Connection handled: ACCEPTED
+May 18, 2017 3:51:07 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
+May 18, 2017 3:51:12 AM codeu.chat.server.Server$1 run
+INFO: Reading update from relay...
