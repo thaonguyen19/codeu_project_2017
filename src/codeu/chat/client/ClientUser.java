@@ -47,14 +47,14 @@ public final class ClientUser {
   // Validate the username string
   static public boolean isValidName(String userName) {
     // TO DO: check that new userName is unique!!!
-      
+    
     boolean clean = true;
     if (userName.length() == 0) {
       clean = false;
     } else {
-
-      // TODO: check for invalid characters
-
+      if (!(userName.matches("[A-Za-z0-9\\_]+"))){
+        clean = false;
+      }
     }
     return clean;
   }
@@ -69,6 +69,10 @@ public final class ClientUser {
 
   public User getCurrent() {
     return current;
+  }
+
+  private User getUserByName(String name){
+      return usersByName.first(name);
   }
 
   public boolean signInUser(String name, String password) {

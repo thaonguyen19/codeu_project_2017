@@ -19,10 +19,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+import codeu.chat.client.TwitterBot;
 import codeu.chat.client.ClientContext;
 import codeu.chat.common.ConversationSummary;
 import codeu.chat.common.Message;
 import codeu.chat.common.User;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.text.ParseException;
 
 // NOTE: JPanel is serializable, but there is no need to serialize MessagePanel
 // without the @SuppressWarnings, the compiler will complain of no override for serialVersionUID
@@ -120,13 +127,15 @@ public final class MessagePanel extends JPanel {
     inputField.setPreferredSize(new Dimension(200, 20));
 
     final JButton addButton = new JButton("Add");
+    final JButton botButton = new JButton("Use TwitterBot");
     buttonPanel.add(addButton);
+    buttonPanel.add(botButton);
+
     final JButton feelingAngry = new JButton("Feeling Angry");
     buttonPanel.add(feelingAngry);
     final JButton feelingCalm = new JButton("Feeling Calm");
     buttonPanel.add(feelingCalm);
-
-
+      
     // Placement of title, list panel, buttons, and current user panel.
     titlePanelC.gridx = 0;
     titlePanelC.gridy = 0;
@@ -175,6 +184,7 @@ public final class MessagePanel extends JPanel {
         }
       }
     });
+<<<<<<< HEAD
 
     feelingCalm.addActionListener(new ActionListener() {
       @Override
@@ -196,6 +206,51 @@ public final class MessagePanel extends JPanel {
       }
     });
 
+=======
+      
+    botButton.addActionListener(new ActionListener(){
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        if (!clientContext.user.hasCurrent()) {
+          JOptionPane.showMessageDialog(MessagePanel.this, "You are not signed in.");
+        } else if (!clientContext.conversation.hasCurrent()) {
+          JOptionPane.showMessageDialog(MessagePanel.this, "You must select a conversation.");
+        } else {
+          String s = (String) JOptionPane.showInputDialog(
+              MessagePanel.this, "Input a time (yyyy-MM-dd HH:mm:ss) when the bot will send message, leave blank to send now",
+              "Set Timer (Optional)", JOptionPane.PLAIN_MESSAGE, null, null, "");
+          TwitterBot bot = new TwitterBot();
+          String messageText = "";
+          s = s.trim();
+          if (s.isEmpty()){
+            clientContext.message.addMessage(clientContext.user.getCurrent().id,
+                clientContext.conversation.getCurrentId(),
+                bot.generateTweet());
+          } else{
+            String pattern = "yyyy-MM-dd HH:mm:ss";
+            SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+            Date timeToSend = new Date();
+            try {
+              timeToSend = formatter.parse(s);
+            } catch (ParseException pe){
+              pe.printStackTrace();
+            }
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask(){
+              public void run(){
+                clientContext.message.addMessage(clientContext.user.getCurrent().id,
+                    clientContext.conversation.getCurrentId(),
+                    bot.generateTweet());
+              }
+            }, timeToSend);
+          }
+          
+          MessagePanel.this.getAllMessages(clientContext.conversation.getCurrent());
+        }
+      }
+    });
+      
+>>>>>>> origin/master
     // Panel is set up. If there is a current conversation, Populate the conversation list.
     getAllMessages(clientContext.conversation.getCurrent());
   }

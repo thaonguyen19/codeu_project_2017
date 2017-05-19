@@ -20,10 +20,15 @@ import java.util.Map;
 
 import codeu.chat.common.Conversation;
 import codeu.chat.common.ConversationSummary;
+
+import codeu.chat.common.User;
+
 import codeu.chat.util.Logger;
 import codeu.chat.util.Method;
 import codeu.chat.util.Uuid;
 import codeu.chat.util.store.Store;
+
+import java.util.Collections;
 
 public final class ClientConversation {
 
@@ -36,6 +41,7 @@ public final class ClientConversation {
   private Conversation currentConversation = null;
 
   private final ClientUser userContext;
+  //private final ArrayList<User> allUsers; //conversation will be shared among these ClientUsers
   private ClientMessage messageContext = null;
 
   // This is the set of conversations known to the server.
@@ -162,8 +168,12 @@ public final class ClientConversation {
     summariesSortedByTitle = new Store<>(String.CASE_INSENSITIVE_ORDER);
 
     for (final ConversationSummary cs : view.getAllConversations()) {
-      summariesByUuid.put(cs.id, cs);
-      summariesSortedByTitle.insert(cs.title, cs);
+      Uuid owner_id = cs.owner;
+      User owner = userContext.lookup(owner_id);
+      if (owner.name.equals(userContext.getCurrent().name)){
+        summariesByUuid.put(cs.id, cs);
+        summariesSortedByTitle.insert(cs.title, cs);
+      }
     }
 
     if (currentChanged) {
@@ -171,7 +181,7 @@ public final class ClientConversation {
       messageContext.resetCurrent(true);
     }
   }
-
+    
   // Print Conversation.  User context is used to map from owner UUID to name.
   public static void printConversation(ConversationSummary c, ClientUser userContext) {
     if (c == null) {
@@ -180,7 +190,7 @@ public final class ClientConversation {
       final String name = (userContext == null) ? null : userContext.getName(c.owner);
       final String ownerName = (name == null) ? "" : String.format(" (%s)", name);
       System.out.format(" Title: %s\n", c.title);
-      System.out.format("    Id: %s owner: %s%s created %s\n", c.id, c.owner, ownerName, c.creation);
+      System.out.format(" Id: %s owner: %s%s created %s\n", c.id, c.owner, ownerName, c.creation);
     }
   }
 
