@@ -122,10 +122,19 @@ public final class MessagePanel extends JPanel {
     final JPanel buttonPanel = new JPanel();
     final GridBagConstraints buttonPanelC = new GridBagConstraints();
 
+    final JTextField inputField = new JTextField();
+    buttonPanel.add(inputField);
+    inputField.setPreferredSize(new Dimension(200, 20));
+
     final JButton addButton = new JButton("Add");
     final JButton botButton = new JButton("Use TwitterBot");
     buttonPanel.add(addButton);
     buttonPanel.add(botButton);
+
+    final JButton feelingAngry = new JButton("Feeling Angry");
+    buttonPanel.add(feelingAngry);
+    final JButton feelingCalm = new JButton("Feeling Calm");
+    buttonPanel.add(feelingCalm);
       
     // Placement of title, list panel, buttons, and current user panel.
     titlePanelC.gridx = 0;
@@ -163,9 +172,8 @@ public final class MessagePanel extends JPanel {
         } else if (!clientContext.conversation.hasCurrent()) {
           JOptionPane.showMessageDialog(MessagePanel.this, "You must select a conversation.");
         } else {
-          final String messageText = (String) JOptionPane.showInputDialog(
-              MessagePanel.this, "Enter message:", "Add Message", JOptionPane.PLAIN_MESSAGE,
-              null, null, "");
+          final String messageText = inputField.getText();
+          inputField.setText("");
           if (messageText != null && messageText.length() > 0) {
             clientContext.message.addMessage(
                 clientContext.user.getCurrent().id,
@@ -176,6 +184,29 @@ public final class MessagePanel extends JPanel {
         }
       }
     });
+<<<<<<< HEAD
+
+    feelingCalm.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        MessagePanel.this.setBackground(Color.BLUE);
+        titlePanel.setBackground(Color.BLUE);
+        listShowPanel.setBackground(Color.BLUE);
+        buttonPanel.setBackground(Color.BLUE);
+      }
+    });
+
+    feelingAngry.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        MessagePanel.this.setBackground(Color.RED);
+        titlePanel.setBackground(Color.RED);
+        listShowPanel.setBackground(Color.RED);
+        buttonPanel.setBackground(Color.RED);
+      }
+    });
+
+=======
       
     botButton.addActionListener(new ActionListener(){
       @Override
@@ -219,6 +250,7 @@ public final class MessagePanel extends JPanel {
       }
     });
       
+>>>>>>> origin/master
     // Panel is set up. If there is a current conversation, Populate the conversation list.
     getAllMessages(clientContext.conversation.getCurrent());
   }

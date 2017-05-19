@@ -20,6 +20,14 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+
 
 import codeu.chat.client.ClientContext;
 import codeu.chat.common.User;
@@ -46,7 +54,7 @@ public final class UserPanel extends JPanel {
     final JPanel titlePanel = new JPanel(new GridBagLayout());
     final GridBagConstraints titlePanelC = new GridBagConstraints();
 
-    final JLabel titleLabel = new JLabel("Users", JLabel.LEFT);
+    final JLabel titleLabel = new JLabel("Users ", JLabel.LEFT);
     final GridBagConstraints titleLabelC = new GridBagConstraints();
     titleLabelC.gridx = 0;
     titleLabelC.gridy = 0;
@@ -84,9 +92,13 @@ public final class UserPanel extends JPanel {
     userListScrollPane.setPreferredSize(new Dimension(150, 150));
       
     //PASSWORD FIELD
-    final JTextField passwordField = new JTextField();
+    final JLabel passwordTitle = new JLabel("Password", JLabel.RIGHT);
+    final JPasswordField passwordField = new JPasswordField();
+    listShowPanel.add(passwordTitle);
     listShowPanel.add(passwordField);
     passwordField.setPreferredSize(new Dimension(100, 20));
+    
+
 
     // Current User panel
     final JPanel currentPanel = new JPanel();
@@ -97,16 +109,23 @@ public final class UserPanel extends JPanel {
     currentPanel.add(userInfoScrollPane);
     userInfoScrollPane.setPreferredSize(new Dimension(245, 85));
 
+    //final ImageIcon profilePicture = new ImageIcon(getClass().getResource("smiley.png"));
+    final JLabel profileLabel = new JLabel();
+    profileLabel.setIcon(new ImageIcon("smiley.png"));
+    currentPanel.add(profileLabel);
+
     // Button bar
     final JPanel buttonPanel = new JPanel();
     final GridBagConstraints buttonPanelC = new GridBagConstraints();
 
     final JButton userUpdateButton = new JButton("Update");
     final JButton userSignInButton = new JButton("Sign In");
+    final JButton userSignOutButton = new JButton("Sign Out");
     final JButton userAddButton = new JButton("Add");
 
     buttonPanel.add(userUpdateButton);
     buttonPanel.add(userSignInButton);
+    buttonPanel.add(userSignOutButton);
     buttonPanel.add(userAddButton);
 
     // Placement of title, list panel, buttons, and current user panel.
@@ -156,11 +175,25 @@ public final class UserPanel extends JPanel {
       public void actionPerformed(ActionEvent e) {
         if (userList.getSelectedIndex() != -1) {
           final String name = userList.getSelectedValue();
-          final String password = passwordField.getText();
+          final String password = new String(passwordField.getPassword()); 
           if (clientContext.user.signInUser(name, password)){
               userSignedInLabel.setText("Hello " + name);
           } else{
               userSignedInLabel.setText("User Not Found");
+          }
+        }
+      }
+    });
+
+    userSignOutButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        if (userList.getSelectedIndex() != -1) {
+          final String name = userList.getSelectedValue();
+          if (clientContext.user.signOutUser()){
+              userSignedInLabel.setText("Please sign in...");
+          } else{
+              userSignedInLabel.setText("Unable to sign user out");
           }
         }
       }
@@ -177,9 +210,12 @@ public final class UserPanel extends JPanel {
         final String password = (String) JOptionPane.showInputDialog(
             UserPanel.this, "Set password:", "Add password", JOptionPane.PLAIN_MESSAGE,
             null, null, "");
+        final String status = (String) JOptionPane.showInputDialog(
+            UserPanel.this, "Set status:", "Post!", JOptionPane.PLAIN_MESSAGE,
+            null, null, "");
           
         if (s != null && s.length() > 0) {
-          clientContext.user.addUser(s, password);
+          clientContext.user.addUser(s, password, status);
           UserPanel.this.getAllUsers(listModel);
         }
       }
