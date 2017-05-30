@@ -184,7 +184,6 @@ public final class MessagePanel extends JPanel {
         }
       }
     });
-<<<<<<< HEAD
 
     feelingCalm.addActionListener(new ActionListener() {
       @Override
@@ -205,8 +204,6 @@ public final class MessagePanel extends JPanel {
         buttonPanel.setBackground(Color.RED);
       }
     });
-
-=======
       
     botButton.addActionListener(new ActionListener(){
       @Override
@@ -249,8 +246,7 @@ public final class MessagePanel extends JPanel {
         }
       }
     });
-      
->>>>>>> origin/master
+    
     // Panel is set up. If there is a current conversation, Populate the conversation list.
     getAllMessages(clientContext.conversation.getCurrent());
   }
