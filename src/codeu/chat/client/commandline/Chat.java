@@ -28,6 +28,7 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 // Chat - top-level client application.
 public final class Chat {
@@ -64,7 +65,8 @@ public final class Chat {
     System.out.println("   c-select <index> - select conversation from list.");
     System.out.println("Message commands:");
     System.out.println("   m-add <body>     - add a new message to the current conversation.");
-    System.out.println("   m-add-with-bot <time>   - add a new message to the current conversation using Twitter Bot, choose to send later at <time>");
+    System.out.println("   m-add-with-bot <time>   - add a new message to the current conversation using Twitter Bot, choose to send later at <time> with format yyyy-MM-dd HH:mm:ss");
+    System.out.println("   m-show-what's-trending   - need help with starting a conversation? Discover what's trending in the world right now");
     System.out.println("   m-list-all       - list all messages in the current conversation.");
     System.out.println("   m-next <index>   - index of next message to view.");
     System.out.println("   m-show <count>   - show next <count> messages.");
@@ -192,6 +194,15 @@ public final class Chat {
         }  
       }
 
+    } else if (token.equals("m-show-what's-trending")){
+      TwitterBot bot = new TwitterBot();
+      ArrayList<String> allTrends = bot.getTrends();
+      String toDisplay = "Need help with starting a conversation? Discover what's trending in the world right now";
+      for (String trend : allTrends){
+        toDisplay += "\n" + trend;
+      }
+      System.out.println(toDisplay);
+        
     } else if (token.equals("m-list-all")) {
 
       if (!clientContext.conversation.hasCurrent()) {

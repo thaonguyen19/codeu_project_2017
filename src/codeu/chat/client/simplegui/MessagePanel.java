@@ -30,6 +30,7 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 // NOTE: JPanel is serializable, but there is no need to serialize MessagePanel
 // without the @SuppressWarnings, the compiler will complain of no override for serialVersionUID
@@ -128,8 +129,10 @@ public final class MessagePanel extends JPanel {
 
     final JButton addButton = new JButton("Add");
     final JButton botButton = new JButton("Use TwitterBot");
+    final JButton trendButton = new JButton("What's Trending?");
     buttonPanel.add(addButton);
     buttonPanel.add(botButton);
+    buttonPanel.add(trendButton);
 
     final JButton feelingAngry = new JButton("Feeling Angry");
     buttonPanel.add(feelingAngry);
@@ -245,6 +248,20 @@ public final class MessagePanel extends JPanel {
           MessagePanel.this.getAllMessages(clientContext.conversation.getCurrent());
         }
       }
+    });
+
+
+    trendButton.addActionListener(new ActionListener(){
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        TwitterBot bot = new TwitterBot();
+        ArrayList<String> allTrends = bot.getTrends();
+        String toDisplay = "Need help with starting a conversation? Discover what's trending in the world right now:";
+        for (String trend : allTrends){
+          toDisplay += "\n" + trend;
+        }
+        JOptionPane.showMessageDialog(MessagePanel.this, toDisplay);
+      }    
     });
     
     // Panel is set up. If there is a current conversation, Populate the conversation list.
