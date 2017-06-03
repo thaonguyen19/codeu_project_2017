@@ -18,8 +18,8 @@ public class TwitterBot{
     private static final String API_SECRET = "PqutMwdt8jewssMYMu96c6uV7CzeTiTNXXi3My8NADXkpXNVgT";
     private static final String ACCESS_TOKEN = "1435740475-oU2spayZF3ZO43eBmEXefNOP79yurmUjwgK2KCz";
     private static final String ACCESS_TOKEN_SECRET = "WqWWfOU2HUoEW14j9aTT0e4s6c9redevTyOQ2nnmjV7W3";
-	private static final String SOURCE = "ShakespeareSong";
-	private static final int NUMBER_TWEETS = 20;
+    private static final String SOURCE = "ShakespeareSong";
+    private static final int NUMBER_TWEETS = 20;
     private static final int woeID = 2450022;
     private static Twitter twitter;
     
