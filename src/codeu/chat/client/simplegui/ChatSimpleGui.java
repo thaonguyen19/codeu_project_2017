@@ -63,7 +63,7 @@ public final class ChatSimpleGui {
 
     // Outermost frame.
     // NOTE: may have tweak size, or place in scrollable panel.
-    mainFrame = new JFrame("Chat");
+    mainFrame = new JFrame("ChatBrat");
     mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     mainFrame.setSize(790, 450);
 
